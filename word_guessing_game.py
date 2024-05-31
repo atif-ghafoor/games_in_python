@@ -8,10 +8,15 @@ def dashes(ran):
     r = ''.join(r_list)
     return r
 # function to replace character
-def rep(ran, ind, alph):
-    list_r = list(ran)
-    list_r[ind] = alph
-    r = ''.join(list_r)
+def rep(ran1, ran, alph):
+    ran = list(ran)
+    ran1 = list(ran1)
+    occurence = ran.count(alph)
+    for i in range(occurence):
+        index1 = ran.index(alph)
+        ran1[index1] = alph
+        ran[index1] = ''
+    r = ''.join(ran1)
     return r
 import random
 list_words = ['Arham','Zayan','Azlan','Ali','Saad','Adnan','Sahil','Fahad','Ayaz','Usman','Zaid','Taha','Maaz','Ahnaf','Salaar','Aliyar','Ayesha','Anabia','Arham','Ayan','Ayaan','Inaya','Sana','Fatima','Zayan','Aryan','Anas','Ayat','Aaira','Rehan','Zoya','Aiza','Zara','Huzaifa','Zain','Naira','Ayat','Aiza','Abeeha','Ali','Ayra','Aqsa','Saad','Adnan','Usman','Taha','Maaz']
@@ -30,7 +35,7 @@ while underscores != ran:
     for i in range(len_u):
         ind = ind + 1
         if alph == ran[ind]:
-            underscores = rep(underscores, ind, alph)
+            underscores = rep(underscores, ran, alph)
             break
     print(underscores)
     if underscores[ind] == alph:
@@ -38,5 +43,4 @@ while underscores != ran:
     else:
         print('ohh shit your guess is not correct')
     ind = 0
-tr = tr - len_u
 print('congratulation you won the game in', tr, 'tries')
