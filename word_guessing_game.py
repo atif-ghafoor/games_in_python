@@ -34,7 +34,7 @@ tr = 0
 list_answers = []
 for i in range(1, len(ran)-1):
     list_answers.append(ran[i])
-for i in range(len_u):
+for i in range(len(ran)):
     ran_alph = random.choice(list_alph)
     list_answers.append(ran_alph)
 random.shuffle(list_answers)
